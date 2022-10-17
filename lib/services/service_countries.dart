@@ -13,7 +13,13 @@ class ServiceCountriesApi {
   }*/
 
   static Future<List<Country>?> getCountry(String country) async {
-    var url = Uri.parse("https://restcountries.com/v2/name/$country");
+    Uri url;
+
+    if (country == "") {
+      url = Uri.parse("https://restcountries.com/v2/all");
+    } else {
+      url = Uri.parse("https://restcountries.com/v2/name/$country");
+    }
 
     try {
       // Await the http get response, then decode the json-formatted response.
@@ -37,8 +43,9 @@ class ServiceCountriesApi {
       }
     } catch (error) {
       print(error);
-      return null;
     }
+
+    return null;
   }
 }
 
