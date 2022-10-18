@@ -1,6 +1,3 @@
-//import 'dart:convert';
-//import 'dart:developer';
-
 import 'dart:convert';
 import 'package:api_rest_countries/models/country_model.dart';
 import 'package:api_rest_countries/models/country_v3_model.dart';
@@ -16,12 +13,14 @@ class ServiceCountriesApi {
       url = Uri.parse("https://restcountries.com/v2/name/$country");
     }
 
+    print(url);
+
     try {
       // Await the http get response, then decode the json-formatted response.
       var response = await http.get(url);
 
       if (response.statusCode == 200) {
-        print(response.body);
+        //print(response.body);
 
         final List<dynamic> bodyDecoded = jsonDecode(response.body);
         final paises = bodyDecoded.map((p) => Country.fromJson(p));
@@ -45,12 +44,14 @@ class ServiceCountriesApi {
       url = Uri.parse("https://restcountries.com/v3/name/$country");
     }
 
+    print(url);
+
     try {
       // Await the http get response, then decode the json-formatted response.
       var response = await http.get(url);
 
       if (response.statusCode == 200) {
-        print(response.body);
+        //print(response.body);
 
         final List<dynamic> bodyDecoded = jsonDecode(response.body);
         final paises = bodyDecoded.map((p) => CountryV3.fromJson(p));

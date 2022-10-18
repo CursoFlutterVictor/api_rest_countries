@@ -62,16 +62,24 @@ class Country {
     alpha3Code = json['alpha3Code'];
     callingCodes = json['callingCodes'].cast<String>();
     capital = json['capital'];
-    altSpellings = json['altSpellings'].cast<String>();
+    //altSpellings = json['altSpellings'].cast<String>();
+    // ignore: prefer_null_aware_operators
+    altSpellings = json['altSpellings'] != null
+        ? json['altSpellings'].cast<String>()
+        : null;
     subregion = json['subregion'];
     region = json['region'];
     population = json['population'];
-    latlng = json['latlng'].cast<int>();
+    //latlng = json['latlng'].cast<int>();
+    // ignore: prefer_null_aware_operators
+    latlng = json['latlng'] != null ? json['latlng'].cast<int>() : null;
     demonym = json['demonym'];
     area = json['area'];
     gini = json['gini'];
     timezones = json['timezones'].cast<String>();
-    borders = json['borders'].cast<String>();
+    //borders = json['borders'].cast<String>();
+    // ignore: prefer_null_aware_operators
+    borders = json['borders'] != null ? json['borders'].cast<String>() : null;
     nativeName = json['nativeName'];
     numericCode = json['numericCode'];
     flags = json['flags'] != null ? Flags?.fromJson(json['flags']) : null;
